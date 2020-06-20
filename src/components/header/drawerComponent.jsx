@@ -13,7 +13,7 @@ import IconButton from "@material-ui/core/IconButton";
 import InvertColorsOffIcon from "@material-ui/icons/InvertColorsOff";
 import OpacityIcon from "@material-ui/icons/Opacity";
 import ThermometerIcon from "../../assets/icons/thermometer.svg";
-const DrawerComponent = ({ handleDrawerClose, open }) => {
+const DrawerComponent = ({ handleDrawerClose, open, props }) => {
   const drawerWidth = 240;
   const theme = useTheme();
   const useStyles = makeStyles((theme) => ({
@@ -54,13 +54,7 @@ const DrawerComponent = ({ handleDrawerClose, open }) => {
       </div>
       <Divider />
       <List>
-        <ListItem
-          button
-          key={"temperature"}
-          onClick={() => {
-            console.log("clicked");
-          }}
-        >
+        <ListItem button key={"temperature"}>
           <ListItemIcon>
             <img src={ThermometerIcon} style={{ width: "1.7rem" }}></img>
           </ListItemIcon>

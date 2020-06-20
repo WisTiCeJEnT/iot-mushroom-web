@@ -3,12 +3,10 @@ import AppBarComponent from "../components/header/appBarComponent";
 import DrawerComponent from "../components/header/drawerComponent";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
-import Drawer from "@material-ui/core/Drawer";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { render } from "@testing-library/react";
 
 function withHeader(Component) {
-  return function WithHeader() {
+  return function WithHeader(props) {
     const drawerWidth = 240;
     const useStyles = makeStyles((theme) => ({
       root: {
@@ -49,8 +47,16 @@ function withHeader(Component) {
     return (
       <div className={classes.root}>
         <CssBaseline />
-        <AppBarComponent handleDrawerOpen={handleDrawerOpen} open={open} />
-        <DrawerComponent handleDrawerClose={handleDrawerClose} open={open} />
+        <AppBarComponent
+          handleDrawerOpen={handleDrawerOpen}
+          open={open}
+          props={props}
+        />
+        <DrawerComponent
+          handleDrawerClose={handleDrawerClose}
+          open={open}
+          props={props}
+        />
         <div
           className={clsx(classes.content, {
             [classes.contentShift]: open,
@@ -60,7 +66,7 @@ function withHeader(Component) {
           <div
             style={{ width: "100%", height: "85vh", border: "0.1px solid red" }}
           >
-            <Component />
+            <Component {...props} />
             {/* main content */}
           </div>
         </div>

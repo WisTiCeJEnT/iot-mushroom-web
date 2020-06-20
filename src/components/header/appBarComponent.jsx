@@ -7,7 +7,7 @@ import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-const AppBarComponent = ({ handleDrawerOpen, open }) => {
+const AppBarComponent = ({ handleDrawerOpen, open, props }) => {
   const useStyles = makeStyles((theme) => ({
     appBar: {
       transition: theme.transitions.create(["margin", "width"], {
@@ -55,8 +55,15 @@ const AppBarComponent = ({ handleDrawerOpen, open }) => {
         </IconButton>
         <Typography variant="h6" noWrap className={classes.title}>
           Menu
-        </Typography>{" "}
-        <Button style={{ color: "#ffffff" }}>Login</Button>
+        </Typography>
+        <Button
+          style={{ color: "#ffffff" }}
+          onClick={() => {
+            props.history.push("/login");
+          }}
+        >
+          Login
+        </Button>
       </Toolbar>
     </AppBar>
   );
