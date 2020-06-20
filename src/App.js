@@ -3,11 +3,12 @@ import { Route, Redirect, Switch } from "react-router-dom";
 import Main from "./pages/main";
 import Status from "./pages/status";
 import NotFound from "./pages/notFound";
-import Header from "./components/header";
+// import Header from "./components/withHeader";
 const App = () => {
   return (
     <React.Fragment>
-      <Header />
+      {/* <Header /> */}
+      <Status />
       {/* <Switch>
         <Route path="/status" component={Status} />
         <Route path="/not-found" component={NotFound} />

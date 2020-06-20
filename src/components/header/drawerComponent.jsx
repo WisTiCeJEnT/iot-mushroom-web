@@ -42,7 +42,6 @@ const DrawerComponent = ({ handleDrawerClose, open }) => {
       classes={{
         paper: classes.drawerPaper,
       }}
-      style={{ background: "red" }}
     >
       <div className={classes.drawerHeader}>
         <IconButton onClick={handleDrawerClose}>
@@ -85,11 +84,11 @@ const DrawerComponent = ({ handleDrawerClose, open }) => {
       </List>
       <Divider />
       <List>
-        <ListItem button key={"dashboard"}>
+        <ListItem button key={"history"}>
           <ListItemIcon>
             <DashboardOutlinedIcon />
           </ListItemIcon>
-          <ListItemText primary={"DASHBOARD"} />
+          <ListItemText primary={"HISTORY"} />
         </ListItem>
       </List>
     </Drawer>
