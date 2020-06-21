@@ -3,49 +3,72 @@ import styled from "styled-components";
 import "fontsource-roboto";
 import withHeader from "../hoc/withHeader";
 import WaterControl from "../components/status/waterControl";
-import { BackGroundStatus, FlexRow } from "../components/sharedComponents";
+import { FlexRow } from "../components/sharedComponents";
 import Divider from "@material-ui/core/Divider";
-const FlexRoww = styled.div`
+import StatusComponent from "../components/status/statusComponent";
+const ContentBox = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 `;
+const StatusBlock = styled(FlexRow)`
+  height: 60%;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem 10rem 1rem 10rem;
+  @media (max-width: 1230px) {
+    padding: 1rem 2rem 1rem 2rem;
+  }
+  @media (max-width: 975px) {
+    height: 100vh;
+    flex-direction: column;
+  }
+`;
+
 const Status = () => {
+  const [openDialog, setOpenDialog] = React.useState(false);
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+  const handleAlert = (type) => {
+    setOpenDialog(!openDialog);
+    console.log("ALERT", type);
+  };
+  const handleWater = () => {
+    console.log("WATER !");
+  };
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-        height: "100%",
-        background: `radial-gradient(
-    ellipse farthest-corner at 100% 0,
-    #01ff70 5%,
-    #ffffff 95%
-  )`,
-      }}
-    >
-      <FlexRow
-        style={{
-          justifyContent: "space-around",
-          height: "40%",
-          paddingTop: "1rem",
-          paddingBottom: "1rem",
-        }}
-      >
-        <BackGroundStatus moderate>TEMPERATURE</BackGroundStatus>
-        <BackGroundStatus danger>HUMIDITY</BackGroundStatus>
-      </FlexRow>
+    <ContentBox>
+      <StatusBlock>
+        <StatusComponent
+          type={"fresh"}
+          text={"HUMIDITY"}
+          value={"105.2"}
+          unit={"humidity unit"}
+          onAlert={() => handleAlert("humid")}
+          alertText={"HUMIDITY WARNING !"}
+          onOpenDialog={openDialog}
+          onCloseDialog={handleCloseDialog}
+          onWater={handleWater}
+        />
+        <StatusComponent
+          type={"moderate"}
+          text={"TEMPERATURE"}
+          value={"38.4"}
+          unit={"Celcius"}
+          onAlert={() => handleAlert("temp")}
+          alertText={"TEMPERATURE WARNING !"}
+          onOpenDialog={openDialog}
+          onCloseDialog={handleCloseDialog}
+          onWater={handleWater}
+        />
+      </StatusBlock>
       <Divider />
       <WaterControl />
       <Divider />
-      <FlexRow
-        style={{
-          justifyContent: "flex-end",
-          alignItems: "center",
-          height: "20%",
-        }}
-      >
-        {/* <Button
+      <FlexRow>
+        {/* <button
           style={{
             width: "20%",
             height: "50%",
@@ -53,10 +76,9 @@ const Status = () => {
           }}
         >
           DASHBOARD
-        </Button> */}
+        </button> */}
       </FlexRow>
-      {/* MAIN CONTENT */}
-    </div>
+    </ContentBox>
   );
 };
 

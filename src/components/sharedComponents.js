@@ -75,7 +75,6 @@ export const BackGroundStatus = styled.div`
     #ffffff 95%
   )`
       : null};
-  width: 30%;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   transition: all 0.2s ease-in-out;
