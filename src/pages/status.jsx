@@ -60,7 +60,7 @@ const Status = () => {
           onWater={handleWater}
         />
       </StatusBlock>
-      <Divider />
+      <Divider style={{ margin: "1rem 0rem" }} />
       <WaterControl status="loading" />
       <Divider />
     </ContentBox>

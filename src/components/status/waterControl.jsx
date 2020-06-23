@@ -58,6 +58,11 @@ const StyledButton = styled.button`
       : null};
   border-radius: 10px;
   transition: all 0.2s ease-in-out;
+  @media (max-width: 975px) {
+    width: 70%;
+    /* margin-bottom: ${(props) =>
+      props.text === "HUMIDITY" ? "2rem" : null}; */
+  }
   :hover {
     transform: scale(1.02);
   }
@@ -68,12 +73,66 @@ const StyledWaterStatus = styled(TypoGraphy)`
   font-size: 1em;
   margin-right: 1rem;
   font-weight: bold;
+  @media (max-width: 1255px) {
+    font-size: 0.9em;
+  }
+  @media (max-width: 1170px) {
+    font-size: 0.8em;
+  }
+  @media (max-width: 1090px) {
+    font-size: 0.7em;
+  }
+  @media (max-width: 1010px) {
+    font-size: 0.65em;
+  }
+  @media (max-width: 970px) {
+    font-size: 1em;
+  }
+  @media (max-width: 750px) {
+    font-size: 0.9em;
+  }
+  @media (max-width: 700px) {
+    font-size: 0.8em;
+  }
+  @media (max-width: 655px) {
+    font-size: 0.7em;
+  }
+  @media (max-width: 606px) {
+    font-size: 0.65em;
+  }
 `;
 const StyledText = styled(TypoGraphy)`
   letter-spacing: 1px;
   text-decoration: none;
   font-size: 1em;
   margin-right: 1rem;
+  @media (max-width: 1255px) {
+    font-size: 0.9em;
+  }
+  @media (max-width: 1170px) {
+    font-size: 0.8em;
+  }
+  @media (max-width: 1090px) {
+    font-size: 0.7em;
+  }
+  @media (max-width: 1010px) {
+    font-size: 0.65em;
+  }
+  @media (max-width: 970px) {
+    font-size: 1em;
+  }
+  @media (max-width: 750px) {
+    font-size: 0.9em;
+  }
+  @media (max-width: 700px) {
+    font-size: 0.8em;
+  }
+  @media (max-width: 655px) {
+    font-size: 0.7em;
+  }
+  @media (max-width: 606px) {
+    font-size: 0.65em;
+  }
 `;
 
 const WaterControl = ({ status }) => {
