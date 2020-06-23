@@ -2,6 +2,17 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 class Main extends Component {
   state = { test: 4 };
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({ test: 5 });
+    }, 2000);
+    console.log(this.state.test);
+    setTimeout(() => {
+      this.setState({ test: 6 });
+    }, 2000);
+    console.log(this.state.test);
+  }
+
   //   intervalId;
   //   componentDidMount() {
   //     this.intervalId = setInterval(this.getData, 1000);
@@ -16,7 +27,7 @@ class Main extends Component {
   //     console.log("getting data...");
   //   };
   render() {
-    // console.log(this.state.test);
+    console.log(this.state.test);
     return (
       <React.Fragment>
         <h2>THIS IS MAIN PAGE</h2>

@@ -53,9 +53,8 @@ const AppBarComponent = ({ handleDrawerOpen, open, props }) => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" noWrap className={classes.title}>
-          Menu
-        </Typography>
+        <Typography variant="h6" noWrap className={classes.title}></Typography>
+        <Button style={{ color: "#ffffff" }}>HISTORY</Button>
         <Button
           style={{ color: "#ffffff" }}
           onClick={() => {
