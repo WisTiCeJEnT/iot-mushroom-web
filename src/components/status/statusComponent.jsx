@@ -4,19 +4,20 @@ import Alert from "../../components/alert";
 import TitleStatus from "./titleStatus";
 import ValueStatus from "./valueStatus";
 import { BackGroundStatus } from "../../components/sharedComponents";
+
 const DetailsBox = styled(BackGroundStatus)`
+  width: 35%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  position: relative;
   padding: 1rem;
-  width: 40vmin;
-  height: 100%;
   overflow: hidden;
-  border: solid 2px red;
+  @media (max-width: 1100px) {
+    width: 40%;
+  }
   @media (max-width: 975px) {
-    width: 35vmin;
-    height: 40%;
+    width: 50%;
+    margin-bottom: ${(props) => (props.text === "HUMIDITY" ? "2rem" : null)};
   }
 `;
 const StatusComponent = ({
@@ -35,6 +36,7 @@ const StatusComponent = ({
       fresh={type === "fresh"}
       moderate={type === "moderate"}
       danger={type === "danger"}
+      text={text}
     >
       <TitleStatus text={text} />
       <ValueStatus value={value} unit={unit} />

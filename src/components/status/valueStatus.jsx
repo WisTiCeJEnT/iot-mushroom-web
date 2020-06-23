@@ -7,30 +7,29 @@ const ValueStatusBox = styled.div`
   align-items: center;
   border-radius: 10px;
   background: whitesmoke;
-  height: 25%;
+  margin: 2rem 0;
 `;
 const ValueBox = styled.div`
   width: 100%;
   font-size: 1.5em;
   text-align: right;
-  @media (max-width: 650px) {
-    font-size: 1em;
-  }
+  padding-left: 3.5rem;
 `;
 const UnitBox = styled.div`
   width: 100%;
   font-size: 2em;
   text-align: right;
   padding-right: 1rem;
-  @media (max-width: 650px) {
-    font-size: 1em;
+  font-weight: bold;
+  @media (max-width: 580px) {
+    font-size: 1.5em;
   }
 `;
 const valueStatus = ({ value, unit }) => {
   return (
     <ValueStatusBox>
       <ValueBox>{value}</ValueBox>
-      <UnitBox>{unit}</UnitBox>
+      <UnitBox>Unit</UnitBox>
     </ValueStatusBox>
   );
 };

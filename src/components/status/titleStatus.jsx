@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 const StyledText = styled.div`
-  align-self: center;
   width: 90%;
+  align-self: center;
   text-align: center;
-  border: solid 2px red;
   font-size: 2em;
   letter-spacing: 1px;
-  @media (max-width: 800px) {
-    font-size: 1.2em;
+  @media (max-width: 580px) {
+    font-size: 1.5em;
   }
 `;
 const TitleStatus = ({ text }) => {

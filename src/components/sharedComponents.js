@@ -1,32 +1,53 @@
 import styled, { keyframes } from "styled-components";
+import CachedIcon from "@material-ui/icons/Cached";
+import CancelIcon from "@material-ui/icons/Cancel";
+import ErrorOutlineOutlinedIcon from "@material-ui/icons/ErrorOutlineOutlined";
+import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
 export const FlexRow = styled.div`
   display: flex;
   flex-direction: row;
 `;
 const rotate360 = keyframes`
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 `;
-
+const shake = keyframes`
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  25% { transform: translate(-1px, -2px) rotate(-1deg); }
+`;
+export const WarningIcon = styled(ErrorOutlineOutlinedIcon)`
+  color: orangered;
+  cursor: pointer;
+  animation: ${shake} 0.5s infinite;
+  :hover {
+    animation: none;
+  }
+`;
+export const ProgressIcon = styled(CachedIcon)`
+  animation: ${rotate360} 1.5s linear infinite;
+`;
+export const OffIcon = styled(CancelIcon)`
+  animation: ${shake} 1.5s infinite;
+  color: red;
+`;
+export const OnIcon = styled(CheckCircleOutlineIcon)`
+  color: #fff;
+  animation: ${shake} 1s infinite;
+`;
 export const Spinner = styled.div`
-  display: inline-block;
-  margin-left: 1rem;
   animation: ${rotate360} 1s linear infinite;
-  transform: translateZ(0);
-  border-top: 2px solid grey;
-  border-right: 2px solid grey;
-  border-bottom: 2px solid grey;
-  border-left: 2px solid transparent;
+  border-bottom: 2px solid blue;
+  border-top: 2px solid greenyellow;
+  border-left: 2px solid green;
   background: transparent;
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 50%;
 `;
-export const Button = styled.button``;
 export const BackGround = styled.div`
   display: flex;
   flex-direction: column;
@@ -79,6 +100,6 @@ export const BackGroundStatus = styled.div`
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   transition: all 0.2s ease-in-out;
   :hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 `;

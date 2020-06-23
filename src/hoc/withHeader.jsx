@@ -63,12 +63,9 @@ function withHeader(Component) {
           })}
         >
           <div className={classes.drawerHeader} />
-          <div
-            style={{ width: "100%", height: "85vh", border: "0.1px solid red" }}
-          >
-            <Component {...props} />
-            {/* main content */}
-          </div>
+
+          <Component {...props} />
+          {/* main content */}
         </div>
       </div>
     );

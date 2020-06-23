@@ -7,25 +7,21 @@ import { FlexRow } from "../components/sharedComponents";
 import Divider from "@material-ui/core/Divider";
 import StatusComponent from "../components/status/statusComponent";
 const ContentBox = styled.div`
+  border: solid 2px red;
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
 `;
 const StatusBlock = styled(FlexRow)`
-  height: 60%;
   justify-content: space-around;
-  align-items: center;
   padding: 1rem 10rem 1rem 10rem;
-  @media (max-width: 1230px) {
-    padding: 1rem 2rem 1rem 2rem;
+  @media (max-width: 1100px) {
+    padding: 1rem 0rem 1rem 0rem;
   }
   @media (max-width: 975px) {
-    height: 100vh;
     flex-direction: column;
+    align-items: center;
   }
 `;
-
 const Status = () => {
   const [openDialog, setOpenDialog] = React.useState(false);
   const handleCloseDialog = () => {
@@ -65,19 +61,8 @@ const Status = () => {
         />
       </StatusBlock>
       <Divider />
-      <WaterControl />
+      <WaterControl status="loading" />
       <Divider />
-      <FlexRow>
-        {/* <button
-          style={{
-            width: "20%",
-            height: "50%",
-            border: "solid green 2px",
-          }}
-        >
-          DASHBOARD
-        </button> */}
-      </FlexRow>
     </ContentBox>
   );
 };
