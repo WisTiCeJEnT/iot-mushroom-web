@@ -31,7 +31,7 @@ const HistoryArea = (props) => {
           variant="contained"
           startIcon={<HistoryIcon />}
           onClick={() => {
-            props.history.push("/history");
+            window.location = "/history";
           }}
         >
           HISTORY

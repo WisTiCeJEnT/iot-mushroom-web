@@ -21,7 +21,7 @@ const UnitBox = styled.div`
   text-align: right;
   padding-right: 1rem;
   font-weight: bold;
-  @media (max-width: 580px) {
+  @media (max-width: 650px) {
     font-size: 1.5em;
   }
 `;

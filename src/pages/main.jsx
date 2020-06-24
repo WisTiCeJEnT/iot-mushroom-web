@@ -42,6 +42,7 @@ class Main extends Component {
           <LoginForm />
           <Typography style={{ margin: "1rem 0" }}>OR</Typography>
           <Button
+            //   style={{}}
             variant="contained"
             color="secondary"
             startIcon={<PageviewIcon />}

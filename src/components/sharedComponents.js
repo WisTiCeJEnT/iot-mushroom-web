@@ -1,4 +1,6 @@
+import React from "react";
 import styled, { keyframes } from "styled-components";
+import Divider from "@material-ui/core/Divider";
 import CachedIcon from "@material-ui/icons/Cached";
 import CancelIcon from "@material-ui/icons/Cancel";
 import ErrorOutlineOutlinedIcon from "@material-ui/icons/ErrorOutlineOutlined";
@@ -103,3 +105,16 @@ export const BackGroundStatus = styled.div`
     transform: scale(1.05);
   }
 `;
+
+const StyledDivider = styled(Divider)`
+  width: 90%;
+  margin: ${(props) => props.margin};
+`;
+
+export function CenterDivider({ margin }) {
+  return (
+    <FlexRow style={{ justifyContent: "center" }}>
+      <StyledDivider margin={margin} />
+    </FlexRow>
+  );
+}

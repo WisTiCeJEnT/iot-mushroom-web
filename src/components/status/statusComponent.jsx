@@ -6,19 +6,27 @@ import ValueStatus from "./valueStatus";
 import { BackGroundStatus, shake } from "../../components/sharedComponents";
 
 const DetailsBox = styled(BackGroundStatus)`
-  width: 35%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
   overflow: hidden;
   animation: ${shake} 1.5s;
-  @media (max-width: 1100px) {
-    width: 40%;
+  @media (max-width: 1185px) {
+    width: 30%;
   }
-  @media (max-width: 975px) {
-    width: 50%;
-    margin-bottom: ${(props) => (props.text === "HUMIDITY" ? "2rem" : null)};
+  @media (max-width: 1025px) {
+    width: 45%;
+    margin: ${(props) => (props.text === "TEMPERATURE" ? "2rem" : null)};
+  }
+  @media (max-width: 750px) {
+    width: 70%;
+    margin: ${(props) => (props.text === "TEMPERATURE" ? "2rem" : null)};
+  }
+  @media (max-width: 600px) {
+    width: 85%;
+    margin: ${(props) => (props.text === "TEMPERATURE" ? "2rem" : null)};
   }
 `;
 const StatusComponent = ({
