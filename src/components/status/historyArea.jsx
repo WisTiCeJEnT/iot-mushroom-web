@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import HistoryIcon from "@material-ui/icons/History";
-const HistoryArea = () => {
+const HistoryArea = (props) => {
   return (
     <div
       style={{
@@ -17,10 +17,23 @@ const HistoryArea = () => {
           justifyContent: "space-between",
         }}
       >
-        <Button color="default" variant="contained">
+        <Button
+          color="default"
+          variant="contained"
+          onClick={() => {
+            props.history.push("/");
+          }}
+        >
           BACK TO MAIN PAGE
         </Button>
-        <Button color="primary" variant="contained" startIcon={<HistoryIcon />}>
+        <Button
+          color="primary"
+          variant="contained"
+          startIcon={<HistoryIcon />}
+          onClick={() => {
+            props.history.push("/history");
+          }}
+        >
           HISTORY
         </Button>
       </div>

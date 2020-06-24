@@ -24,7 +24,7 @@ const StatusBlock = styled(FlexRow)`
   }
 `;
 
-const Status = () => {
+const Status = (props) => {
   const [openDialog, setOpenDialog] = React.useState(false);
   const handleCloseDialog = () => {
     setOpenDialog(false);
@@ -64,16 +64,19 @@ const Status = () => {
         />
       </StatusBlock>
       <FlexRow style={{ justifyContent: "center" }}>
-        <Divider style={{ margin: "1rem 0", width: "90%" }} />
+        <Divider style={{ margin: "2rem 0 0 0", width: "90%" }} />
       </FlexRow>
       <div>
         <Title text="Configure Water ON/OFF" />
         <WaterControl status="loading" />
       </div>
       <FlexRow style={{ justifyContent: "center" }}>
-        <Divider style={{ margin: "3rem 0", width: "90%" }} />
+        <Divider style={{ margin: "2rem 0", width: "90%" }} />
       </FlexRow>
-      <HistoryArea />
+      <HistoryArea {...props} />
+      <FlexRow style={{ justifyContent: "center" }}>
+        <Divider style={{ margin: "2rem 0 4rem 0", width: "90%" }} />
+      </FlexRow>
     </ContentBox>
   );
 };

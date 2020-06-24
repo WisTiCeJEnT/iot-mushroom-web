@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import DialogComponent from "./dialogComponent";
+import DialogComponent from "./DialogComponent";
 import { WarningIcon } from "./sharedComponents";
 const AlertBox = styled.div`
   overflow: hidden;

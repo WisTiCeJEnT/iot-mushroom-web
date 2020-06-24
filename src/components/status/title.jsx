@@ -10,7 +10,14 @@ const StyledText = styled(Typography)`
 `;
 const Title = ({ text }) => {
   return (
-    <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        width: "100%",
+        margin: "1.5rem 0",
+      }}
+    >
       <StyledText nowrap={true}>{text}</StyledText>
     </div>
   );

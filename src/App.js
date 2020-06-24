@@ -4,11 +4,13 @@ import Main from "./pages/main";
 import Status from "./pages/status";
 import NotFound from "./pages/notFound";
 import Login from "./pages/login";
+import History from "./pages/history";
 const App = () => {
   return (
     <React.Fragment>
       <Switch>
-        <Route path="/login" component={Login} />
+        <Route path="/login" component={Login} />{" "}
+        <Route path="/history" component={History} />
         <Route path="/status" component={Status} />
         <Route path="/not-found" component={NotFound} />
         <Route path="/main" component={Main} />
