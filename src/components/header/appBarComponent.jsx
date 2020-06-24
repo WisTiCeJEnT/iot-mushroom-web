@@ -22,7 +22,14 @@ const AppBarComponent = ({ props }) => {
             MUSHROOM PROJECT
           </Button>
         </Typography>
-        <Button style={{ color: "#ffffff" }}>HISTORY</Button>
+        <Button
+          style={{ color: "#ffffff" }}
+          onClick={() => {
+            props.history.push("/history");
+          }}
+        >
+          HISTORY
+        </Button>
         <Button
           style={{ color: "#ffffff" }}
           onClick={() => {
