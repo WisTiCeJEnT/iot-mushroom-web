@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Alert from "../../components/alert";
 import TitleStatus from "./titleStatus";
 import ValueStatus from "./valueStatus";
-import { BackGroundStatus } from "../../components/sharedComponents";
+import { BackGroundStatus, shake } from "../../components/sharedComponents";
 
 const DetailsBox = styled(BackGroundStatus)`
   width: 35%;
@@ -12,6 +12,7 @@ const DetailsBox = styled(BackGroundStatus)`
   justify-content: space-between;
   padding: 1rem;
   overflow: hidden;
+  animation: ${shake} 1.5s;
   @media (max-width: 1100px) {
     width: 40%;
   }

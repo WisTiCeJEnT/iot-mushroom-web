@@ -15,7 +15,7 @@ const rotate360 = keyframes`
     transform: rotate(360deg);
   }
 `;
-const shake = keyframes`
+export const shake = keyframes`
   0% { transform: translate(1px, 1px) rotate(0deg); }
   25% { transform: translate(-1px, -2px) rotate(-1deg); }
 `;
