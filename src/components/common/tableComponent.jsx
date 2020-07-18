@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import PaginationComponent from "./paginationComponent";
+import { paginate } from "../../utils/paginate";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -6,71 +8,146 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 
-const TableComponent = () => {
-  const rows = [
-    {
-      name: "Frozen yoghurt",
-      calories: 159,
-      fat: 6.0,
-      carbs: 24,
-      protein: 4.0,
-    },
-    {
-      name: "Ice cream sandwich",
-      calories: 237,
-      fat: 9.0,
-      carbs: 37,
-      protein: 4.3,
-    },
-    { name: "Eclair", calories: 262, fat: 16.0, carbs: 24, protein: 6.0 },
-    { name: "Cupcake", calories: 305, fat: 3.7, carbs: 67, protein: 4.3 },
-    {
-      name: "Gingerbread",
-      calories: 356,
-      fat: 16.0,
-      carbs: 49,
-      protein: 3.9,
-    },
-  ];
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <TableContainer style={{ width: "60%" }}>
-        <Table>
-          <TableHead>
-            <TableRow>
-              <TableCell>Date</TableCell>
-              <TableCell align="right">Avg. Humidity (unit) &nbsp;</TableCell>
-              <TableCell align="right">Avg. Light (unit)&nbsp;</TableCell>
-              <TableCell align="right">Avg. Temperature (unit)&nbsp;</TableCell>
-              <TableCell align="right">Avg. blabla (unit)&nbsp;</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <TableRow
-                style={{ cursor: "pointer" }}
-                hover={{ backgroundColor: "yellow" }}
-                key={row.name}
-              >
-                <TableCell component="th" scope="row">
-                  {row.name}
+class TableComponent extends Component {
+  state = {
+    currentPage: 1,
+    rowPerPage: 4,
+    data: [
+      {
+        name: "Date 1",
+        humidity: 159,
+        light: 6.0,
+        temperature: 24,
+        blabla: 4.0,
+      },
+      {
+        name: "Date 2",
+        humidity: 237,
+        light: 9.0,
+        temperature: 37,
+        blabla: 4.3,
+      },
+      {
+        name: "Date 3",
+        humidity: 262,
+        light: 16.0,
+        temperature: 24,
+        blabla: 6.0,
+      },
+      {
+        name: "Date 4",
+        humidity: 305,
+        light: 3.7,
+        temperature: 67,
+        blabla: 4.3,
+      },
+      {
+        name: "Date 5",
+        humidity: 356,
+        light: 16.0,
+        temperature: 49,
+        blabla: 3.9,
+      },
+      {
+        name: "Date 6",
+        humidity: 356,
+        light: 16.0,
+        temperature: 49,
+        blabla: 3.9,
+      },
+      {
+        name: "Date 7",
+        humidity: 356,
+        light: 16.0,
+        temperature: 49,
+        blabla: 3.9,
+      },
+      {
+        name: "Date 8",
+        humidity: 356,
+        light: 16.0,
+        temperature: 49,
+        blabla: 3.9,
+      },
+      {
+        name: "Date 9",
+        humidity: 356,
+        light: 16.0,
+        temperature: 49,
+        blabla: 3.9,
+      },
+      {
+        name: "Date 10",
+        humidity: 356,
+        light: 16.0,
+        temperature: 49,
+        blabla: 3.9,
+      },
+    ],
+  };
+  handlePageChange = (page) => {
+    this.setState({ currentPage: page });
+  };
+  render() {
+    const { data, currentPage, rowPerPage } = this.state;
+    const test = [1, 2, 3];
+
+    let showedData = paginate(data, currentPage, rowPerPage);
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <TableContainer style={{ width: "90%" }}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Date</TableCell>
+                <TableCell align="right">Avg. Humidity (unit) &nbsp;</TableCell>
+                <TableCell align="right">Avg. Light (unit)&nbsp;</TableCell>
+                <TableCell align="right">
+                  Avg. Temperature (unit)&nbsp;
                 </TableCell>
-                <TableCell align="right">{row.calories}</TableCell>
-                <TableCell align="right">{row.fat}</TableCell>
-                <TableCell align="right">{row.carbs}</TableCell>
-                <TableCell align="right">{row.protein}</TableCell>
+                <TableCell align="right">Avg. blabla (unit)&nbsp;</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </div>
-  );
-};
+            </TableHead>
+            <TableBody>
+              {showedData.map((row) => (
+                <TableRow
+                  style={{
+                    cursor: "pointer",
+                    backgroundColor:
+                      this.state.data.indexOf(row) === 0
+                        ? "greenyellow"
+                        : "none",
+                  }}
+                  key={row.name}
+                >
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="right">{row.humidity}</TableCell>
+                  <TableCell align="right">{row.light}</TableCell>
+                  <TableCell align="right">{row.temperature}</TableCell>
+                  <TableCell align="right">{row.blabla}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+        <PaginationComponent
+          rowPerPage={this.state.rowPerPage}
+          totalRow={this.state.data.length}
+          onPageChange={this.handlePageChange}
+          currentPage={this.state.currentPage}
+        />
+      </div>
+    );
+  }
+}
 
 export default TableComponent;
