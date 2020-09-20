@@ -29,7 +29,7 @@ const NotFound = (props) => {
           color="default"
           variant="contained"
           onClick={() => {
-            props.history.push("/");
+            window.location = "./main";
           }}
         >
           BACK TO MAIN PAGE

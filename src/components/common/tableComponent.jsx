@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import PaginationComponent from "./paginationComponent";
 import { paginate } from "../../utils/paginate";
 import Table from "@material-ui/core/Table";
@@ -8,6 +9,14 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 
+const StyledTableRow = styled(TableRow)`
+  background-color: ${(props) =>
+    props.data.indexOf(props.row) === 0 ? "greenyellow" : "none"};
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  :hover {
+  }
+`;
 class TableComponent extends Component {
   state = {
     currentPage: 1,
@@ -117,16 +126,7 @@ class TableComponent extends Component {
             </TableHead>
             <TableBody>
               {showedData.map((row) => (
-                <TableRow
-                  style={{
-                    cursor: "pointer",
-                    backgroundColor:
-                      this.state.data.indexOf(row) === 0
-                        ? "greenyellow"
-                        : "none",
-                  }}
-                  key={row.name}
-                >
+                <StyledTableRow data={this.state.data} row={row} key={row.name}>
                   <TableCell component="th" scope="row">
                     {row.name}
                   </TableCell>
@@ -134,7 +134,7 @@ class TableComponent extends Component {
                   <TableCell align="right">{row.light}</TableCell>
                   <TableCell align="right">{row.temperature}</TableCell>
                   <TableCell align="right">{row.blabla}</TableCell>
-                </TableRow>
+                </StyledTableRow>
               ))}
             </TableBody>
           </Table>

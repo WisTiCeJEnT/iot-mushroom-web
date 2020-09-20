@@ -16,7 +16,7 @@ const AppBarComponent = ({ props }) => {
           <Button
             style={{ color: "#ffffff" }}
             onClick={() => {
-              props.history.push("/");
+              window.location = "./main";
             }}
           >
             MUSHROOM PROJECT
@@ -33,7 +33,7 @@ const AppBarComponent = ({ props }) => {
         <Button
           style={{ color: "#ffffff" }}
           onClick={() => {
-            props.history.push("/login");
+            window.location = "./main";
           }}
         >
           Login

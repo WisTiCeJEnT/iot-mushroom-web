@@ -1,48 +1,53 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import LoginForm from "../components/common/loginForm";
+import Mushroom from "../assets/images/mushroom.svg";
+import Grass from "../assets/images/grass.svg";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import { Typography } from "@material-ui/core";
-
 import PageviewIcon from "@material-ui/icons/Pageview";
-
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 const StyledBackGround = styled.div`
   display: flex;
+  margin: 7rem 0;
   align-items: center;
   justify-content: center;
-  background-color: #e1b382;
-  width: 100vw;
-  height: 100vh;
 `;
 const StyledContentBox = styled.div`
   display: flex;
   flex-direction: column;
+  background: whitesmoke;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  background-color: transparent;
-  width: 50%;
+  padding: 4rem 5rem;
   border: #ffff solid 2px;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+`;
+const StyledMushroomImg = styled.img`
+  width: 75px;
+  height: 75px;
 `;
 class Main extends Component {
   render() {
     return (
       <StyledBackGround>
         <StyledContentBox>
-          <Avatar style={{ backgroundColor: "#4245f5" }}>
-            <LockOutlinedIcon />
-          </Avatar>
-          <Typography style={{ margin: "0.5rem 0 0 0", fontSize: "1.25em" }}>
-            Sign in
-          </Typography>
+          <div style={{ display: "flex" }}>
+            <StyledMushroomImg src={Mushroom} />
+            <StyledMushroomImg
+              src={Grass}
+              style={{
+                width: "20px",
+                paddingTop: "1rem",
+              }}
+            />
+          </div>
+          <Typography style={{ fontSize: "1.5em" }}>Sign In</Typography>
           <LoginForm />
           <Typography style={{ margin: "1rem 0" }}>OR</Typography>
           <Button
-            //   style={{}}
             variant="contained"
             color="secondary"
             startIcon={<PageviewIcon />}

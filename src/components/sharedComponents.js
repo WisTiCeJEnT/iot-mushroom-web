@@ -25,9 +25,6 @@ export const WarningIcon = styled(ErrorOutlineOutlinedIcon)`
   color: orangered;
   cursor: pointer;
   animation: ${shake} 0.5s infinite;
-  :hover {
-    animation: none;
-  }
 `;
 export const ProgressIcon = styled(CachedIcon)`
   animation: ${rotate360} 1.5s linear infinite;
