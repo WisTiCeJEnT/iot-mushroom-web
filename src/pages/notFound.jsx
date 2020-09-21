@@ -23,7 +23,7 @@ const NotFound = (props) => {
       <ContentBox>
         <img src={NotFoundIcon} style={{ width: "20vmax" }} />
         <Typography style={{ fontSize: "3vmax", margin: "2rem" }}>
-          404 PAGE NOT FOUNDd
+          404 PAGE NOT FOUND
         </Typography>
         <Button
           color="default"

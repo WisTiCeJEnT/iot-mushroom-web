@@ -5,10 +5,12 @@ import CachedIcon from "@material-ui/icons/Cached";
 import CancelIcon from "@material-ui/icons/Cancel";
 import ErrorOutlineOutlinedIcon from "@material-ui/icons/ErrorOutlineOutlined";
 import CheckCircleOutlineIcon from "@material-ui/icons/CheckCircleOutline";
+import RefreshIcon from "@material-ui/icons/Refresh";
 export const FlexRow = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
 const rotate360 = keyframes`
   0% {
     transform: rotate(0deg);
@@ -28,6 +30,18 @@ export const WarningIcon = styled(ErrorOutlineOutlinedIcon)`
 `;
 export const ProgressIcon = styled(CachedIcon)`
   animation: ${rotate360} 1.5s linear infinite;
+`;
+export const RotateRefreshIcon = styled(RefreshIcon)`
+  width: 3rem;
+  height: 3rem;
+  color: #636e72;
+  cursor: pointer;
+  transition: 0.5s;
+  animation: ${rotate360} ${(props) => (props.rotate ? "1.5s" : "0s")} linear
+    infinite;
+  :hover {
+    transform: scale(0.9);
+  }
 `;
 export const OffIcon = styled(CancelIcon)`
   animation: ${shake} 1.5s infinite;

@@ -9,7 +9,6 @@ function withHeader(Component) {
         <CssBaseline />
         <AppBarComponent props={props} />
         <Component {...props} />
-        {/* main content */}
       </React.Fragment>
     );
   };

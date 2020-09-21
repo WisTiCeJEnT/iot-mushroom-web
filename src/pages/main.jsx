@@ -1,66 +1,122 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import LoginForm from "../components/common/loginForm";
-import Mushroom from "../assets/images/mushroom.svg";
-import Grass from "../assets/images/grass.svg";
-import Avatar from "@material-ui/core/Avatar";
-import Button from "@material-ui/core/Button";
-import { Typography } from "@material-ui/core";
-import PageviewIcon from "@material-ui/icons/Pageview";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
-const StyledBackGround = styled.div`
-  display: flex;
-  margin: 7rem 0;
-  align-items: center;
-  justify-content: center;
-`;
-const StyledContentBox = styled.div`
+import "fontsource-roboto";
+import withHeader from "../hoc/withHeader";
+import Title from "../components/status/title";
+import WaterControl from "../components/status/waterControl";
+import HistoryArea from "../components/status/historyArea";
+import {
+  FlexRow,
+  CenterDivider,
+  RotateRefreshIcon,
+} from "../components/sharedComponents";
+
+import StatusComponent from "../components/status/statusComponent";
+const ContentBox = styled.div`
   display: flex;
   flex-direction: column;
-  background: whitesmoke;
-  align-items: center;
-  justify-content: center;
-  padding: 4rem 5rem;
-  border: #ffff solid 2px;
-  border-radius: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 `;
-const StyledMushroomImg = styled.img`
-  width: 75px;
-  height: 75px;
+const StatusBlock = styled(FlexRow)`
+  justify-content: space-around;
+  padding: 1.5rem 10rem 1rem 10rem;
+  @media (max-width: 1400px) {
+    padding: 1rem 4rem 1rem 4rem;
+  }
+
+  @media (max-width: 1025px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 class Main extends Component {
+  state = { openDialog: false, refresh: false, isLoggedIn: false };
+  handleCloseDialog = () => {
+    this.setState({ openDialog: false });
+  };
+
+  handleAlert = (type) => {
+    this.setState({ openDialog: !this.state.openDialog });
+    console.log("ALERT", type);
+  };
+  handleWater = () => {
+    console.log("WATER !");
+  };
+  handleRefreshData = () => {
+    this.setState({ refresh: !this.state.refresh });
+    console.log("REFRESH !");
+  };
+
+  componentWillReceiveProps({ isLoggedIn }) {
+    this.setState({ isLoggedIn });
+  }
   render() {
+    const { refresh, openDialog, isLoggedIn } = this.state;
     return (
-      <StyledBackGround>
-        <StyledContentBox>
-          <div style={{ display: "flex" }}>
-            <StyledMushroomImg src={Mushroom} />
-            <StyledMushroomImg
-              src={Grass}
-              style={{
-                width: "20px",
-                paddingTop: "1rem",
-              }}
-            />
-          </div>
-          <Typography style={{ fontSize: "1.5em" }}>Sign In</Typography>
-          <LoginForm />
-          <Typography style={{ margin: "1rem 0" }}>OR</Typography>
-          <Button
-            variant="contained"
-            color="secondary"
-            startIcon={<PageviewIcon />}
-            onClick={() => {
-              window.location = "/iot-mushroom-web/status";
-            }}
-          >
-            GO TO STATUS PAGE
-          </Button>
-        </StyledContentBox>
-      </StyledBackGround>
+      <ContentBox>
+        <Title text="Environments Status"></Title>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "1rem",
+          }}
+        >
+          <RotateRefreshIcon
+            onClick={this.handleRefreshData}
+            rotate={refresh}
+          />
+          {refresh ? (
+            <p> WAITING DATA FROM SERVER ...</p>
+          ) : (
+            <p> Refresh Data</p>
+          )}
+        </div>
+        <StatusBlock>
+          <StatusComponent
+            type={"fresh"}
+            text={"HUMIDITY"}
+            value={"105.2"}
+            unit={"humidity unit"}
+            onAlert={() => this.handleAlert("humid")}
+            alertText={"HUMIDITY WARNING !"}
+            onOpenDialog={openDialog}
+            onCloseDialog={this.handleCloseDialog}
+            onWater={this.handleWater}
+          />
+          <StatusComponent
+            type={"moderate"}
+            text={"TEMPERATURE"}
+            value={"38.4"}
+            unit={"Celcius"}
+            onAlert={() => this.handleAlert("temp")}
+            alertText={"TEMPERATURE WARNING !"}
+            onOpenDialog={openDialog}
+            onCloseDialog={this.handleCloseDialog}
+            onWater={this.handleWater}
+          />
+          <StatusComponent
+            type={"danger"}
+            text={"LIGHT"}
+            value={"351.0"}
+            unit={"light unit"}
+            onAlert={() => this.handleAlert("light")}
+            alertText={"LIGHT WARNING !"}
+            onOpenDialog={openDialog}
+            onCloseDialog={this.handleCloseDialog}
+            onWater={this.handleWater}
+          />
+        </StatusBlock>
+        <CenterDivider margin="2rem 0 0 0" />
+        <div>
+          <Title text="Configure Water ON/OFF" />
+          <WaterControl status="loading" />
+        </div>
+        <CenterDivider margin="2rem 0" />
+        <HistoryArea {...this.props} />
+        <CenterDivider margin="2rem 0 4rem 0" />
+      </ContentBox>
     );
   }
 }
 
-export default Main;
+export default withHeader(Main);

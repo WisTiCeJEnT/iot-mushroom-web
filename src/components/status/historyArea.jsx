@@ -13,25 +13,15 @@ const HistoryArea = (props) => {
         style={{
           width: "80%",
           display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
+          justifyContent: "center",
         }}
       >
-        <Button
-          color="default"
-          variant="contained"
-          onClick={() => {
-            window.location = "./main";
-          }}
-        >
-          BACK TO MAIN PAGE
-        </Button>
         <Button
           color="primary"
           variant="contained"
           startIcon={<HistoryIcon />}
           onClick={() => {
-            window.location = "/iot-mushroom-web/history";
+            window.location = "./history";
           }}
         >
           HISTORY

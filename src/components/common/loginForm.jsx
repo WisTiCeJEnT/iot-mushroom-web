@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { signIn } from "../../services/api";
 import { Spinner } from "../sharedComponents";
 import { Button, Input } from "@material-ui/core";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
@@ -17,10 +18,21 @@ class LoginForm extends Component {
     e.preventDefault();
     if (this.validateRequiredField()) {
       this.setState({ isLoading: !this.state.isLoading });
-      setTimeout(() => {
-        this.setState({ isLoading: !this.state.isLoading });
-        window.location = "./iot-mushroom-web/status";
-      }, 2000);
+      signIn(
+        this.state.account,
+        ({ data }) => {
+          console.log("success", data);
+          localStorage.setItem("token", data.token);
+          this.setState({ isLoading: !this.state.isLoading });
+        },
+        (response) => {
+          console.log("test", response);
+          this.setState({
+            isLoading: !this.state.isLoading,
+            errorMessage: { response },
+          });
+        }
+      );
     }
   };
   handleChange = (e) => {
