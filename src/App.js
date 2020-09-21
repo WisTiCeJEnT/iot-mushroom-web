@@ -9,7 +9,7 @@ const App = () => {
   return (
     <React.Fragment>
       <Switch>
-        <Route path="/login" component={Login} />{" "}
+        <Route path="/login" component={Login} />
         <Route path="/history" component={History} />
         <Route path="/status" component={Status} />
         <Route path="/not-found" component={NotFound} />
