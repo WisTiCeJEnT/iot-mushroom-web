@@ -21,7 +21,7 @@ const HistoryArea = (props) => {
           color="default"
           variant="contained"
           onClick={() => {
-            window.location = "/main";
+            window.location = "./main";
           }}
         >
           BACK TO MAIN PAGE
@@ -31,7 +31,7 @@ const HistoryArea = (props) => {
           variant="contained"
           startIcon={<HistoryIcon />}
           onClick={() => {
-            window.location = "/history";
+            window.location = "/iot-mushroom-web/history";
           }}
         >
           HISTORY

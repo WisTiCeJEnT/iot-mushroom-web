@@ -25,7 +25,7 @@ const AppBarComponent = ({ props }) => {
         <Button
           style={{ color: "#ffffff" }}
           onClick={() => {
-            props.history.push("/history");
+            props.history.push("/iot-mushroom-web/history");
           }}
         >
           HISTORY

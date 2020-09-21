@@ -52,7 +52,7 @@ class Main extends Component {
             color="secondary"
             startIcon={<PageviewIcon />}
             onClick={() => {
-              window.location = "/status";
+              window.location = "/iot-mushroom-web/status";
             }}
           >
             GO TO STATUS PAGE

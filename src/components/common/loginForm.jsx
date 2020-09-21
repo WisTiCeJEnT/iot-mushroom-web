@@ -19,7 +19,7 @@ class LoginForm extends Component {
       this.setState({ isLoading: !this.state.isLoading });
       setTimeout(() => {
         this.setState({ isLoading: !this.state.isLoading });
-        window.location = "./status";
+        window.location = "./iot-mushroom-web/status";
       }, 2000);
     }
   };
