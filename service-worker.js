@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/iot-mushroom-web/precache-manifest.8ea6a07cc457634e51d125fc0cfbbb3a.js"
+  "/iot-mushroom-web/precache-manifest.f97d67f21bc1f437019eae5b5d64b467.js"
 );
 
 self.addEventListener('message', (event) => {
