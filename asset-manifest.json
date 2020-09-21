@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/iot-mushroom-web/static/css/main.69eda509.chunk.css",
-    "main.js": "/iot-mushroom-web/static/js/main.6789adf4.chunk.js",
-    "main.js.map": "/iot-mushroom-web/static/js/main.6789adf4.chunk.js.map",
+    "main.js": "/iot-mushroom-web/static/js/main.12d67877.chunk.js",
+    "main.js.map": "/iot-mushroom-web/static/js/main.12d67877.chunk.js.map",
     "runtime-main.js": "/iot-mushroom-web/static/js/runtime-main.242a2e3f.js",
     "runtime-main.js.map": "/iot-mushroom-web/static/js/runtime-main.242a2e3f.js.map",
     "static/css/2.a59ad3cb.chunk.css": "/iot-mushroom-web/static/css/2.a59ad3cb.chunk.css",
     "static/js/2.fcf4cb4d.chunk.js": "/iot-mushroom-web/static/js/2.fcf4cb4d.chunk.js",
     "static/js/2.fcf4cb4d.chunk.js.map": "/iot-mushroom-web/static/js/2.fcf4cb4d.chunk.js.map",
     "index.html": "/iot-mushroom-web/index.html",
-    "precache-manifest.c0367ad0355803ce87c9f5b545958cf6.js": "/iot-mushroom-web/precache-manifest.c0367ad0355803ce87c9f5b545958cf6.js",
+    "precache-manifest.4770ce01f273df2725bfd8daed72f222.js": "/iot-mushroom-web/precache-manifest.4770ce01f273df2725bfd8daed72f222.js",
     "service-worker.js": "/iot-mushroom-web/service-worker.js",
     "static/css/2.a59ad3cb.chunk.css.map": "/iot-mushroom-web/static/css/2.a59ad3cb.chunk.css.map",
     "static/css/main.69eda509.chunk.css.map": "/iot-mushroom-web/static/css/main.69eda509.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.a59ad3cb.chunk.css",
     "static/js/2.fcf4cb4d.chunk.js",
     "static/css/main.69eda509.chunk.css",
-    "static/js/main.6789adf4.chunk.js"
+    "static/js/main.12d67877.chunk.js"
   ]
 }
