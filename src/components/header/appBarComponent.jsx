@@ -16,17 +16,24 @@ const AppBarComponent = ({ props }) => {
           <Button
             style={{ color: "#ffffff" }}
             onClick={() => {
-              props.history.push("/");
+              window.location = "./main";
             }}
           >
             MUSHROOM PROJECT
           </Button>
         </Typography>
-        <Button style={{ color: "#ffffff" }}>HISTORY</Button>
         <Button
           style={{ color: "#ffffff" }}
           onClick={() => {
-            props.history.push("/login");
+            props.history.push("/history");
+          }}
+        >
+          HISTORY
+        </Button>
+        <Button
+          style={{ color: "#ffffff" }}
+          onClick={() => {
+            window.location = "./main";
           }}
         >
           Login

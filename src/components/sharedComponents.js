@@ -1,4 +1,6 @@
+import React from "react";
 import styled, { keyframes } from "styled-components";
+import Divider from "@material-ui/core/Divider";
 import CachedIcon from "@material-ui/icons/Cached";
 import CancelIcon from "@material-ui/icons/Cancel";
 import ErrorOutlineOutlinedIcon from "@material-ui/icons/ErrorOutlineOutlined";
@@ -15,7 +17,7 @@ const rotate360 = keyframes`
     transform: rotate(360deg);
   }
 `;
-const shake = keyframes`
+export const shake = keyframes`
   0% { transform: translate(1px, 1px) rotate(0deg); }
   25% { transform: translate(-1px, -2px) rotate(-1deg); }
 `;
@@ -23,9 +25,6 @@ export const WarningIcon = styled(ErrorOutlineOutlinedIcon)`
   color: orangered;
   cursor: pointer;
   animation: ${shake} 0.5s infinite;
-  :hover {
-    animation: none;
-  }
 `;
 export const ProgressIcon = styled(CachedIcon)`
   animation: ${rotate360} 1.5s linear infinite;
@@ -103,3 +102,16 @@ export const BackGroundStatus = styled.div`
     transform: scale(1.05);
   }
 `;
+
+const StyledDivider = styled(Divider)`
+  width: 90%;
+  margin: ${(props) => props.margin};
+`;
+
+export function CenterDivider({ margin }) {
+  return (
+    <FlexRow style={{ justifyContent: "center" }}>
+      <StyledDivider margin={margin} />
+    </FlexRow>
+  );
+}

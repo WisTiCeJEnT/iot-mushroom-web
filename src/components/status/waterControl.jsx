@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import "fontsource-roboto";
 import TypoGraphy from "@material-ui/core/Typography";
+import Tooltip from "@material-ui/core/Tooltip";
 import {
   FlexRow,
   Spinner,
@@ -57,7 +58,7 @@ const StyledButton = styled.button`
       : null};
   border-radius: 10px;
   transition: all 0.2s ease-in-out;
-  @media (max-width: 975px) {
+  @media (max-width: 1025px) {
     width: 70%;
   }
   :hover {
@@ -70,7 +71,7 @@ const StyledWaterStatus = styled(TypoGraphy)`
   font-size: calc(0.18em + 1.1vw);
   margin-right: 1rem;
   font-weight: bold;
-  @media (max-width: 975px) {
+  @media (max-width: 1025px) {
     font-size: calc(0.5em + 1vw);
   }
 `;
@@ -79,7 +80,7 @@ const StyledText = styled(TypoGraphy)`
   text-decoration: none;
   font-size: calc(0.18em + 1.09vw);
   margin-right: 1rem;
-  @media (max-width: 975px) {
+  @media (max-width: 1025px) {
     font-size: calc(0.5em + 1vw);
   }
 `;

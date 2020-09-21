@@ -21,7 +21,7 @@ const HistoryArea = (props) => {
           color="default"
           variant="contained"
           onClick={() => {
-            props.history.push("/");
+            window.location = "/main";
           }}
         >
           BACK TO MAIN PAGE
@@ -31,7 +31,7 @@ const HistoryArea = (props) => {
           variant="contained"
           startIcon={<HistoryIcon />}
           onClick={() => {
-            props.history.push("/history");
+            window.location = "/history";
           }}
         >
           HISTORY
