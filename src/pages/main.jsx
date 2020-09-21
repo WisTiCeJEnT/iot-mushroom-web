@@ -12,22 +12,7 @@ class Main extends Component {
     }, 2000);
     console.log(this.state.test);
   }
-
-  //   intervalId;
-  //   componentDidMount() {
-  //     this.intervalId = setInterval(this.getData, 1000);
-  //     console.log(this.state.test);
-  //   }
-  //   componentWillUnmount() {
-  //     console.log("clear");
-  //     clearInterval(this.intervalId);
-  //   }
-  //   getData = () => {
-  //     this.setState({ test: this.state.test + 1 });
-  //     console.log("getting data...");
-  //   };
   render() {
-    console.log(this.state.test);
     return (
       <React.Fragment>
         <h2>THIS IS MAIN PAGE</h2>
