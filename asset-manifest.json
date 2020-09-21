@@ -1,26 +1,29 @@
 {
   "files": {
-    "main.css": "/iot-mushroom-web/static/css/main.69eda509.chunk.css",
-    "main.js": "/iot-mushroom-web/static/js/main.12d67877.chunk.js",
-    "main.js.map": "/iot-mushroom-web/static/js/main.12d67877.chunk.js.map",
+    "main.css": "/iot-mushroom-web/static/css/main.cd481ff4.chunk.css",
+    "main.js": "/iot-mushroom-web/static/js/main.a9f10aae.chunk.js",
+    "main.js.map": "/iot-mushroom-web/static/js/main.a9f10aae.chunk.js.map",
     "runtime-main.js": "/iot-mushroom-web/static/js/runtime-main.242a2e3f.js",
     "runtime-main.js.map": "/iot-mushroom-web/static/js/runtime-main.242a2e3f.js.map",
     "static/css/2.a59ad3cb.chunk.css": "/iot-mushroom-web/static/css/2.a59ad3cb.chunk.css",
-    "static/js/2.fcf4cb4d.chunk.js": "/iot-mushroom-web/static/js/2.fcf4cb4d.chunk.js",
-    "static/js/2.fcf4cb4d.chunk.js.map": "/iot-mushroom-web/static/js/2.fcf4cb4d.chunk.js.map",
+    "static/js/2.e5f0651f.chunk.js": "/iot-mushroom-web/static/js/2.e5f0651f.chunk.js",
+    "static/js/2.e5f0651f.chunk.js.map": "/iot-mushroom-web/static/js/2.e5f0651f.chunk.js.map",
     "index.html": "/iot-mushroom-web/index.html",
-    "precache-manifest.4770ce01f273df2725bfd8daed72f222.js": "/iot-mushroom-web/precache-manifest.4770ce01f273df2725bfd8daed72f222.js",
+    "precache-manifest.8ea6a07cc457634e51d125fc0cfbbb3a.js": "/iot-mushroom-web/precache-manifest.8ea6a07cc457634e51d125fc0cfbbb3a.js",
     "service-worker.js": "/iot-mushroom-web/service-worker.js",
     "static/css/2.a59ad3cb.chunk.css.map": "/iot-mushroom-web/static/css/2.a59ad3cb.chunk.css.map",
-    "static/css/main.69eda509.chunk.css.map": "/iot-mushroom-web/static/css/main.69eda509.chunk.css.map",
-    "static/js/2.fcf4cb4d.chunk.js.LICENSE.txt": "/iot-mushroom-web/static/js/2.fcf4cb4d.chunk.js.LICENSE.txt",
+    "static/css/main.cd481ff4.chunk.css.map": "/iot-mushroom-web/static/css/main.cd481ff4.chunk.css.map",
+    "static/js/2.e5f0651f.chunk.js.LICENSE.txt": "/iot-mushroom-web/static/js/2.e5f0651f.chunk.js.LICENSE.txt",
+    "static/media/grass.svg": "/iot-mushroom-web/static/media/grass.f3bb135d.svg",
+    "static/media/mushroom.svg": "/iot-mushroom-web/static/media/mushroom.0fb0cf1e.svg",
+    "static/media/notfound.svg": "/iot-mushroom-web/static/media/notfound.60acd080.svg",
     "static/media/index.css": "/iot-mushroom-web/static/media/roboto-latin-900-normal.bb1e4dc6.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.242a2e3f.js",
     "static/css/2.a59ad3cb.chunk.css",
-    "static/js/2.fcf4cb4d.chunk.js",
-    "static/css/main.69eda509.chunk.css",
-    "static/js/main.12d67877.chunk.js"
+    "static/js/2.e5f0651f.chunk.js",
+    "static/css/main.cd481ff4.chunk.css",
+    "static/js/main.a9f10aae.chunk.js"
   ]
 }
