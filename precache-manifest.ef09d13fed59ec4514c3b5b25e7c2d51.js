@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "279fed4a3b4765e8d79afdf1cde1acb2",
+    "revision": "3ed49d96c331789f6775e0a6e88ff3da",
     "url": "/iot-mushroom-web/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/iot-mushroom-web/static/css/2.a59ad3cb.chunk.css"
   },
   {
-    "revision": "a71f1be0c0cbf5c24058",
+    "revision": "1800472fa1a275bf212f",
     "url": "/iot-mushroom-web/static/css/main.69eda509.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/iot-mushroom-web/static/js/2.fcf4cb4d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a71f1be0c0cbf5c24058",
-    "url": "/iot-mushroom-web/static/js/main.9b1c4996.chunk.js"
+    "revision": "1800472fa1a275bf212f",
+    "url": "/iot-mushroom-web/static/js/main.e7e80267.chunk.js"
   },
   {
     "revision": "2c5f81f8bad1d0dac18a",
