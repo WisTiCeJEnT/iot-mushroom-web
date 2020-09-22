@@ -1,85 +1,77 @@
 import React from "react";
-import Toolbar from "@material-ui/core/Toolbar";
+import styled from "styled-components";
 import { FlexRow } from "../sharedComponents";
-import Typography from "@material-ui/core/Typography";
-import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
-const AppBarComponent = ({ props }) => {
+const StyledInst = styled(Button)`
+  color: #ffffff;
+  border: solid 2px whitesmoke;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+`;
+const StyledBar = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #130f40;
+  padding: 0.5rem 0rem;
+`;
+const AppBarComponent = ({ isLoggedIn, history }) => {
   return (
-    <AppBar
-      position="sticky"
-      style={{
-        background: "#e1b382",
-      }}
-    >
-      <Toolbar>
-        <Typography style={{ flexGrow: 1 }}>
-          <Button
-            style={{ color: "#ffffff" }}
-            onClick={() => {
-              window.location = "./main";
-            }}
-          >
-            MUSHROOM PROJECT
-          </Button>
-        </Typography>
-        <FlexRow
-          style={{
-            margin: "0rem 3rem",
-            border: "solid 2px whitesmoke",
-            padding: "0rem 1rem",
-            borderRadius: "1rem",
-          }}
-        >
-          <p>WATER STATUS : PROGRESSING...</p>
-        </FlexRow>
-        <Button
-          style={{
-            color: "#ffffff",
-            border: "solid 2px whitesmoke",
-            padding: "0.5rem 1rem",
-            borderRadius: "1rem",
-          }}
+    <StyledBar>
+      <Button
+        style={{ color: "#ffffff", marginLeft: "1rem" }}
+        onClick={() => {
+          window.location = "./main";
+        }}
+      >
+        MUSHROOM PROJECT
+      </Button>
+      <FlexRow>
+        <StyledInst>WATER STATUS : PROGRESSING...</StyledInst>
+        <StyledInst
+          style={{ margin: "0rem 1.5rem" }}
           onClick={() => {
-            props.history.push("./history");
+            history.push("./history");
           }}
         >
           HISTORY
-        </Button>
-        {props.isLoggedIn ? (
-          <FlexRow style={{ margin: "0rem 0rem 0rem 3rem" }}>
-            <p>WATER CONTROLLER : </p>
-            <Button
-              style={{
-                border: "greenyellow solid 3px",
-                margin: "0rem 1rem",
-                borderRadius: "1rem",
+        </StyledInst>
+        {isLoggedIn ? (
+          <FlexRow>
+            <StyledInst
+              onClick={() => {
+                history.push("./control");
               }}
             >
-              ON
-            </Button>
-            <Button style={{ border: "red solid 3px", borderRadius: "1rem" }}>
-              OFF
-            </Button>
-            <p style={{ marginLeft: "3rem", marginRight: "3rem" }}>
-              LOGGED IN AS : Juitanya
-            </p>
-            <Button style={{ border: "red solid 3px", borderRadius: "1rem" }}>
+              WATER CONTROLLER
+            </StyledInst>
+            <StyledInst
+              style={{
+                border: "solid 3px #ff7979",
+                color: "#ff7979",
+                margin: "0rem 1.5rem",
+              }}
+              onClick={() => {
+                localStorage.removeItem("token");
+                window.location = "./main";
+              }}
+            >
               LOGOUT
-            </Button>
+            </StyledInst>
           </FlexRow>
         ) : (
-          <Button
-            style={{ color: "#ffffff", marginLeft: "3rem" }}
+          <StyledInst
+            style={{ margin: "0rem 1.5rem 0rem 0rem" }}
             onClick={() => {
               window.location = "./login";
             }}
           >
             Login
-          </Button>
+          </StyledInst>
         )}
-      </Toolbar>
-    </AppBar>
+      </FlexRow>
+    </StyledBar>
   );
 };
 

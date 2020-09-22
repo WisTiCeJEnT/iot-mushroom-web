@@ -24,12 +24,12 @@ class LoginForm extends Component {
           console.log("success", data);
           localStorage.setItem("token", data.token);
           this.setState({ isLoading: !this.state.isLoading });
+          window.location = "./main";
         },
         (response) => {
-          console.log("test", response);
           this.setState({
             isLoading: !this.state.isLoading,
-            errorMessage: { response },
+            errorMessage: response.data.note,
           });
         }
       );

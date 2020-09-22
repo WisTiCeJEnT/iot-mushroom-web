@@ -11,6 +11,7 @@ const DetailsBox = styled(BackGroundStatus)`
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
+  background: #6c5ce7;
   overflow: hidden;
   animation: ${shake} 1.5s;
   @media (max-width: 1185px) {
@@ -42,20 +43,20 @@ const StatusComponent = ({
 }) => {
   return (
     <DetailsBox
-      fresh={type === "fresh"}
-      moderate={type === "moderate"}
-      danger={type === "danger"}
+      //   fresh={type === "fresh"}
+      //   moderate={type === "moderate"}
+      //   danger={type === "danger"}
       text={text}
     >
       <TitleStatus text={text} />
       <ValueStatus value={value} unit={unit} />
-      <Alert
+      {/* <Alert
         onAlert={onAlert}
         text={alertText}
         onOpenDialog={onOpenDialog}
         onCloseDialog={onCloseDialog}
         onWater={onWater}
-      />
+      /> */}
     </DetailsBox>
   );
 };

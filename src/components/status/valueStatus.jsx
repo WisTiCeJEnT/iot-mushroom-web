@@ -7,19 +7,19 @@ const ValueStatusBox = styled.div`
   align-items: center;
   border-radius: 10px;
   background: whitesmoke;
+  position: relative;
   margin: 2rem 0;
+  overflow: hidden;
 `;
 const ValueBox = styled.div`
-  width: 100%;
   font-size: 1.5em;
-  text-align: right;
-  padding-left: 3.5rem;
+
+  margin: 0rem 0.5rem;
 `;
 const UnitBox = styled.div`
-  width: 100%;
   font-size: 2em;
+  margin-right: 2rem;
   text-align: right;
-  padding-right: 1rem;
   font-weight: bold;
   @media (max-width: 650px) {
     font-size: 1.5em;
@@ -28,7 +28,16 @@ const UnitBox = styled.div`
 const valueStatus = ({ value, unit }) => {
   return (
     <ValueStatusBox>
-      <ValueBox>{value}</ValueBox>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          position: "absolute",
+        }}
+      >
+        <ValueBox>{value}</ValueBox>
+      </div>
       <UnitBox>Unit</UnitBox>
     </ValueStatusBox>
   );

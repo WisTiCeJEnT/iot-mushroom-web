@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
+import Control from "./pages/control";
 import Main from "./pages/main";
 import NotFound from "./pages/notFound";
 import Login from "./pages/login";
 import History from "./pages/history";
-
+import "./index.css";
 class App extends Component {
   state = {
     isLoggedIn: false,
@@ -14,7 +15,6 @@ class App extends Component {
     if (isLoggedIn) this.setState({ isLoggedIn: true });
   }
   render() {
-    console.log("app", this.state.isLoggedIn);
     return (
       <React.Fragment>
         <Switch>
@@ -34,6 +34,12 @@ class App extends Component {
             path="/iot-mushroom-web/history"
             render={(props) => (
               <History {...props} isLoggedIn={this.state.isLoggedIn} />
+            )}
+          />
+          <Route
+            path="/iot-mushroom-web/control"
+            render={(props) => (
+              <Control {...props} isLoggedIn={this.state.isLoggedIn} />
             )}
           />
           <Route path="/iot-mushroom-web/not-found" component={NotFound} />

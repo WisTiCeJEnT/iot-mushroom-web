@@ -5,3 +5,9 @@ export const signIn = (payload, callback, onRejected) =>
     .post(url + "/login", payload)
     .then(({ data }) => callback({ data }))
     .catch(({ response }) => onRejected(response));
+
+export const currentStatus = (callback, onRejected) =>
+  axios
+    .get(url + "/current_status")
+    .then(({ data }) => callback({ data }))
+    .catch(({ response }) => onRejected(response));

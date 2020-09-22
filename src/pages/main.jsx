@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import "fontsource-roboto";
-import withHeader from "../hoc/withHeader";
+import Header from "../components/header";
 import Title from "../components/status/title";
 import WaterControl from "../components/status/waterControl";
 import HistoryArea from "../components/status/historyArea";
@@ -10,6 +10,7 @@ import {
   CenterDivider,
   RotateRefreshIcon,
 } from "../components/sharedComponents";
+import { currentStatus } from "../services/api";
 
 import StatusComponent from "../components/status/statusComponent";
 const ContentBox = styled.div`
@@ -29,7 +30,36 @@ const StatusBlock = styled(FlexRow)`
   }
 `;
 class Main extends Component {
-  state = { openDialog: false, refresh: false, isLoggedIn: false };
+  state = {
+    openDialog: false,
+    refresh: false,
+    isLoggedIn: false,
+    currentStatus: { humidity: "-", temp: "-", light: "-" },
+  };
+  constructor(props) {
+    super(props);
+    document.getElementById("body").className = "whiteTheme";
+  }
+  componentDidMount() {
+    this.getData();
+  }
+  getData = () => {
+    this.setState({ refresh: true });
+    currentStatus(
+      ({ data }) => {
+        const currentStatus = { ...this.state.currentStatus };
+        const avg_temp = (data.data.temp1 + data.data.temp2) / 2;
+        const avg_light = (data.data.light1 + data.data.light2) / 2;
+        currentStatus.humidity = data.data.humid_arv.toFixed(2);
+        currentStatus.temp = avg_temp.toFixed(2);
+        currentStatus.light = avg_light.toFixed(2);
+        this.setState({ currentStatus, refresh: false });
+      },
+      (err) => {
+        console.log("getValue error.");
+      }
+    );
+  };
   handleCloseDialog = () => {
     this.setState({ openDialog: false });
   };
@@ -42,8 +72,7 @@ class Main extends Component {
     console.log("WATER !");
   };
   handleRefreshData = () => {
-    this.setState({ refresh: !this.state.refresh });
-    console.log("REFRESH !");
+    this.getData();
   };
 
   componentWillReceiveProps({ isLoggedIn }) {
@@ -52,71 +81,74 @@ class Main extends Component {
   render() {
     const { refresh, openDialog, isLoggedIn } = this.state;
     return (
-      <ContentBox>
-        <Title text="Environments Status"></Title>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginBottom: "1rem",
-          }}
-        >
-          <RotateRefreshIcon
-            onClick={this.handleRefreshData}
-            rotate={refresh}
-          />
-          {refresh ? (
-            <p> WAITING DATA FROM SERVER ...</p>
-          ) : (
-            <p> Refresh Data</p>
-          )}
-        </div>
-        <StatusBlock>
-          <StatusComponent
-            type={"fresh"}
-            text={"HUMIDITY"}
-            value={"105.2"}
-            unit={"humidity unit"}
-            onAlert={() => this.handleAlert("humid")}
-            alertText={"HUMIDITY WARNING !"}
-            onOpenDialog={openDialog}
-            onCloseDialog={this.handleCloseDialog}
-            onWater={this.handleWater}
-          />
-          <StatusComponent
-            type={"moderate"}
-            text={"TEMPERATURE"}
-            value={"38.4"}
-            unit={"Celcius"}
-            onAlert={() => this.handleAlert("temp")}
-            alertText={"TEMPERATURE WARNING !"}
-            onOpenDialog={openDialog}
-            onCloseDialog={this.handleCloseDialog}
-            onWater={this.handleWater}
-          />
-          <StatusComponent
-            type={"danger"}
-            text={"LIGHT"}
-            value={"351.0"}
-            unit={"light unit"}
-            onAlert={() => this.handleAlert("light")}
-            alertText={"LIGHT WARNING !"}
-            onOpenDialog={openDialog}
-            onCloseDialog={this.handleCloseDialog}
-            onWater={this.handleWater}
-          />
-        </StatusBlock>
-        <CenterDivider margin="2rem 0 0 0" />
-        <div>
-          <Title text="Configure Water ON/OFF" />
-          <WaterControl status="loading" />
-        </div>
-        <CenterDivider margin="2rem 0" />
-        <HistoryArea {...this.props} />
-        <CenterDivider margin="2rem 0 4rem 0" />
-      </ContentBox>
+      <div>
+        <Header isLoggedIn={isLoggedIn} {...this.props} />
+        <ContentBox>
+          <Title text="Environments Status"></Title>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginBottom: "1rem",
+            }}
+          >
+            <RotateRefreshIcon
+              onClick={this.handleRefreshData}
+              rotate={refresh}
+            />
+            {refresh ? (
+              <p> WAITING DATA FROM SERVER ...</p>
+            ) : (
+              <p> Click for Refresh Data</p>
+            )}
+          </div>
+          <StatusBlock>
+            <StatusComponent
+              type={"fresh"}
+              text={"HUMIDITY"}
+              value={this.state.currentStatus.humidity}
+              unit={"humidity unit"}
+              onAlert={() => this.handleAlert("humid")}
+              alertText={"HUMIDITY WARNING !"}
+              onOpenDialog={openDialog}
+              onCloseDialog={this.handleCloseDialog}
+              onWater={this.handleWater}
+            />
+            <StatusComponent
+              type={"moderate"}
+              text={"TEMPERATURE"}
+              value={this.state.currentStatus.temp}
+              unit={"Celcius"}
+              onAlert={() => this.handleAlert("temp")}
+              alertText={"TEMPERATURE WARNING !"}
+              onOpenDialog={openDialog}
+              onCloseDialog={this.handleCloseDialog}
+              onWater={this.handleWater}
+            />
+            <StatusComponent
+              type={"danger"}
+              text={"LIGHT"}
+              value={this.state.currentStatus.light}
+              unit={"light unit"}
+              onAlert={() => this.handleAlert("light")}
+              alertText={"LIGHT WARNING !"}
+              onOpenDialog={openDialog}
+              onCloseDialog={this.handleCloseDialog}
+              onWater={this.handleWater}
+            />
+          </StatusBlock>
+          <CenterDivider margin="2rem 0 0 0" />
+          <div>
+            <Title text="Configure Water ON/OFF" />
+            <WaterControl status="loading" />
+          </div>
+          <CenterDivider margin="2rem 0" />
+          <HistoryArea {...this.props} />
+          <CenterDivider margin="2rem 0 4rem 0" />
+        </ContentBox>
+      </div>
     );
   }
 }
 
-export default withHeader(Main);
+export default Main;

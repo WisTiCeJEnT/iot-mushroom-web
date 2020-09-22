@@ -1,15 +1,22 @@
 import React, { Component } from "react";
+import Header from "../components/header";
 import TableComponent from "../components/common/tableComponent";
 import ChartComponent from "../components/common/chartComponent";
-import withHeader from "../hoc/withHeader";
 class History extends Component {
+  state = { isLoggedIn: false };
+  componentWillReceiveProps({ isLoggedIn }) {
+    this.setState({ isLoggedIn });
+  }
   render() {
     return (
       <div>
-        <ChartComponent />
-        <TableComponent />
+        <Header isLoggedIn={this.state.isLoggedIn} {...this.props} />
+        <div>
+          <ChartComponent />
+          <TableComponent />
+        </div>
       </div>
     );
   }
 }
-export default withHeader(History);
+export default History;

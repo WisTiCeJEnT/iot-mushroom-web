@@ -5,6 +5,7 @@ const StyledText = styled.div`
   align-self: center;
   text-align: center;
   font-size: 2em;
+  color: white;
   letter-spacing: 1px;
   @media (max-width: 675px) {
     font-size: 1.5em;
