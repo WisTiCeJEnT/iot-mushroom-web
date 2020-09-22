@@ -34,9 +34,9 @@ export const ProgressIcon = styled(CachedIcon)`
 export const RotateRefreshIcon = styled(RefreshIcon)`
   width: 3rem;
   height: 3rem;
-  color: #636e72;
+  color: ${(props) => (props.rotate ? "#6c5ce7" : "#636e72")};
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.75s;
   animation: ${rotate360} ${(props) => (props.rotate ? "1.5s" : "0s")} linear
     infinite;
   :hover {
@@ -110,7 +110,7 @@ export const BackGroundStatus = styled.div`
   )`
       : null};
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
   transition: all 0.2s ease-in-out;
   :hover {
     transform: scale(1.05);

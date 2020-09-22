@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import { Typography } from "@material-ui/core";
 import PageviewIcon from "@material-ui/icons/Pageview";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+
 const StyledBackGround = styled.div`
   display: flex;
   margin: 7rem 0;
@@ -29,8 +30,15 @@ const StyledMushroomImg = styled.img`
   height: 75px;
 `;
 class Login extends Component {
+  state = { isLoggedIn: false };
+  componentWillReceiveProps({ isLoggedIn }) {
+    this.setState({ isLoggedIn });
+  }
+  redirectToStatusPage = () => {
+    window.location = "./main";
+  };
   render() {
-    return (
+    return !this.state.isLoggedIn ? (
       <StyledBackGround>
         <StyledContentBox>
           <div style={{ display: "flex" }}>
@@ -58,6 +66,8 @@ class Login extends Component {
           </Button>
         </StyledContentBox>
       </StyledBackGround>
+    ) : (
+      this.redirectToStatusPage()
     );
   }
 }

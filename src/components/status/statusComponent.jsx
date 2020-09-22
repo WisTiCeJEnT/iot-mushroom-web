@@ -11,7 +11,8 @@ const DetailsBox = styled(BackGroundStatus)`
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
-  background: #6c5ce7;
+  background: linear-gradient(#341f97 95%, rgba(127, 113, 248, 1) 100%);
+  box-shadow: 0px 0px 10px #0abde3;
   overflow: hidden;
   animation: ${shake} 1.5s;
   @media (max-width: 1185px) {

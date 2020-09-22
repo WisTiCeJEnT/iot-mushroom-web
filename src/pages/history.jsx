@@ -4,6 +4,10 @@ import TableComponent from "../components/common/tableComponent";
 import ChartComponent from "../components/common/chartComponent";
 class History extends Component {
   state = { isLoggedIn: false };
+  constructor(props) {
+    super(props);
+    document.getElementById("body").className = "whiteTheme";
+  }
   componentWillReceiveProps({ isLoggedIn }) {
     this.setState({ isLoggedIn });
   }

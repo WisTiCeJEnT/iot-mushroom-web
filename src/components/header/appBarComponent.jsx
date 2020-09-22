@@ -7,6 +7,17 @@ const StyledInst = styled(Button)`
   border: solid 2px whitesmoke;
   padding: 0.5rem 1rem;
   border-radius: 1rem;
+  @media (max-width: 915px) {
+    font-size: 0.75em;
+    padding: 0.5rem;
+  }
+`;
+const StyledToMainPage = styled(Button)`
+  color: #ffffff;
+  margin-left: 1rem;
+  @media (max-width: 915px) {
+    font-size: 0.9em;
+  }
 `;
 const StyledBar = styled.div`
   width: 100%;
@@ -19,18 +30,19 @@ const StyledBar = styled.div`
 const AppBarComponent = ({ isLoggedIn, history }) => {
   return (
     <StyledBar>
-      <Button
-        style={{ color: "#ffffff", marginLeft: "1rem" }}
+      <StyledToMainPage
         onClick={() => {
           window.location = "./main";
         }}
       >
-        MUSHROOM PROJECT
-      </Button>
+        STATUS PAGE
+      </StyledToMainPage>
       <FlexRow>
-        <StyledInst>WATER STATUS : PROGRESSING...</StyledInst>
+        <StyledInst style={{ marginLeft: "1.5rem" }}>
+          WATER STATUS : PROGRESSING...
+        </StyledInst>
         <StyledInst
-          style={{ margin: "0rem 1.5rem" }}
+          style={{ margin: "0rem 1rem" }}
           onClick={() => {
             history.push("./history");
           }}
@@ -41,7 +53,7 @@ const AppBarComponent = ({ isLoggedIn, history }) => {
           <FlexRow>
             <StyledInst
               onClick={() => {
-                history.push("./control");
+                window.location = "./control";
               }}
             >
               WATER CONTROLLER
@@ -54,7 +66,7 @@ const AppBarComponent = ({ isLoggedIn, history }) => {
               }}
               onClick={() => {
                 localStorage.removeItem("token");
-                window.location = "./main";
+                window.location = "./login";
               }}
             >
               LOGOUT

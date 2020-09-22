@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import "fontsource-roboto";
 import Header from "../components/header";
 import Title from "../components/status/title";
 import WaterControl from "../components/status/waterControl";
@@ -88,7 +87,9 @@ class Main extends Component {
           <div
             style={{
               display: "flex",
+              flexDirection: "column",
               justifyContent: "center",
+              alignItems: "center",
               marginBottom: "1rem",
             }}
           >
@@ -97,7 +98,7 @@ class Main extends Component {
               rotate={refresh}
             />
             {refresh ? (
-              <p> WAITING DATA FROM SERVER ...</p>
+              <p> Getting Data From Server ...</p>
             ) : (
               <p> Click for Refresh Data</p>
             )}
